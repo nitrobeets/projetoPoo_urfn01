@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./tabStyle.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="Aluno.js" defer></script>
+    <script src="Interface.js" defer></script>
+    <script src="main.js" defer></script>
+    <title>Sistema Escolar</title>
+  </head>
+  <body>
+    <!-- Botões para trocar de aba -->
+    <div class="tabs-container">
+      <button class="tab-button active" id="btn-cadastrar" onclick="cadastro()">Cadastrar</button>
+      <button class="tab-button" id="btn-listar" onclick="listarAluno()">Listar Turmas</button>
+    </div>
+
+    <!-- Conteúdo da Aba 1: Cadastrar -->
+    <div id="tab-cadastrar" class="tab-content active">
+      <!-- Abas de cadastro de turma e aluno -->
+      <div class="tabs-container">
+        <button class="tab-button active" id="btn-cadastrarTurma" onclick="cadastroTurma()">Turmas</button>
+        <button class="tab-button" id="btn-cadastrarAluno" onclick="cadastroAluno()">Alunos</button>
+      </div>
+
+      <div id="tab-cadastrarTurma" class="tab-content active">
+        Nome do curso: <input id="nomecurso" type="text" />
+        Discente: <input id="prof" type="text" />
+        Numero da turma: <input id="idturma" type="text" />
+        <button onclick="btnSalvarTurma()" class="btn-salvarTurma">Cadastrar turma</button>
+      </div>
+
+      <div id="tab-cadastrarAluno" class="tab-content">
+        Nome: <input id="nome" type="text" /> 
+        Turma: <input id="turma" type="text" />
+        Nota 1: <input id="n1" type="text" /> 
+        Nota 2: <input id="n2" type="text" /> 
+        Nota 3: <input id="n3" type="text" />
+        <button onclick="btnSalvar()" class="btn-salvar">Salvar Aluno</button>
+      </div>
+    </div>
+
+    <!-- Conteúdo da Aba 2: Listar -->
+    <div id="tab-listar" class="tab-content">
+      <h3>Turmas Cadastradas</h3>
+      <ul class="lista-alunos" id="turmas">
+        <!-- O JavaScript vai colocar os alunos aqui depois -->
+        <li>Nenhum aluno cadastrado ainda.</li>
+      </ul>
+    </div>
+  </body>
+</html>
