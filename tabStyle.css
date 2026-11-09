@@ -43,11 +43,6 @@
   border-bottom: 1px solid #dee2e6;
 }
 
-/* Efeito ao passar o mouse nos alunos */
-#turmas .linha-aluno:hover td {
-  background-color: #f1f5f9;
-}
-
 /* Mensagem quando não existem alunos */
 #turmas .sem-alunos td {
   background-color: #fff3cd;
@@ -63,5 +58,22 @@
 
 /* Alinhamento dos IDs */
 #turmas .linha-turma td:nth-child(3) {
+  text-align: center;
+}
+
+.btn-editar {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-editar:hover {
+  background-color: #1d4ed8;
+}
+
+.linha-aluno td:last-child {
   text-align: center;
 }

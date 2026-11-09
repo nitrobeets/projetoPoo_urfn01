@@ -34,7 +34,6 @@ class Interface{
     if(turmas[i].getIdturma() == idturma){
       turmas[i].alunos.push(a1);
       alert('aluno cadastrado');
-      alert(turmas[i].alunos.length)
       tencontrada = true;
     }
    }
@@ -59,8 +58,8 @@ class Interface{
    // Cabeçalho da tabela
    for (let i = 0; i < turma.length; i++) {
       lista +=
-         "<tr class='linha-turma'><td colspan='6'> Curso: "+ turma[i].getNomeCurso() + "</tr></td>" +
-         "<td colspan='5'> Professor: " + turma[i].getProfessor() + "</td>" +
+         "<tr class='linha-turma'><td colspan='7'> Curso: "+ turma[i].getNomeCurso() + "</tr></td>" +
+         "<td colspan='6'> Professor: " + turma[i].getProfessor() + "</td>" +
          "<td> Id Turma: " + turma[i].getIdturma() + "</td>" +
          "</tr>";
       if(turma[i].alunos.length >= 1){
@@ -72,6 +71,7 @@ class Interface{
         "<th>Nota 3</th>" + 
         "<th>Média</th>" +
         "<th>Situação</th>" +
+        "<th>Editor de \nNotas</th>"
         "</tr>";
         for(let j = 0; j < turma[i].alunos.length; j++) {
           lista +=
@@ -82,10 +82,13 @@ class Interface{
             "<td>"+turma[i].alunos[j].getNota3() +"</td>"+
             "<td>"+turma[i].alunos[j].media.toFixed(2) +"</td>"+
             "<td>"+turma[i].alunos[j].estado +"</td>" +
+            "<td>" +
+            "<button onclick='editarNotas()' class='btn-editar'>Editar Notas</button>" +
+            "</td>" +
             "</tr>";
         }
       }else{
-        lista += "<tr class='sem-alunos'><td colspan='3'>Nenhum aluno cadastrado nessa turma ainda.</td></tr>";
+        lista += "<tr class='sem-alunos'><td colspan='7'>Nenhum aluno cadastrado nessa turma ainda.</td></tr>";
       }
    }
    lista += "</table>"
