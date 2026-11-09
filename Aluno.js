@@ -8,8 +8,8 @@ class Aluno {
   constructor(nome, nota1, nota2, nota3) {
     this.#nome = nome;
     this.#nota1 = nota1;
-    this.nota2 = nota2;
-    this.nota3 = nota3;
+    this.#nota2 = nota2;
+    this.#nota3 = nota3;
   }
   gerarMedia(nota1, nota2, nota3) {
     let m = (nota1 + nota2 + nota3) / 3;

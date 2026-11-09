@@ -1,49 +1,67 @@
-/* Tabela de alunos */
+/* Tabela principal */
+#turmas {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 #turmas table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
-  text-align: left;
+  border-spacing: 0;
 }
 
-
-/* Cabeçalho */
-#turmas th {
-  background-color: #f1f3f5;
-  color: #333;
-  padding: 14px 12px;
-  font-weight: bold;
-  text-align: left;
-}
-
-
-/* Células dos alunos */
-#turmas td {
-  padding: 14px 12px;
-  border-bottom: 1px solid #e5e5e5;
-  color: #333;
-}
-
-
-/* Efeito ao passar o mouse */
-#alunos tr:hover td {
-  background-color: #f8f9fa;
-}
-
-
-/* Alinhamento da média */
-#turmas th:nth-child(2),
-#alunos td:nth-child(2) {
+/* Cabeçalho principal */
+#turmas > table > tr:first-child th {
+  background-color: #343a40;
+  color: white;
+  padding: 12px;
   text-align: center;
 }
 
-
-/* Cantos arredondados do cabeçalho */
-#turmas th:first-child {
-  border-radius: 8px 0 0 8px;
+/* Linhas das turmas */
+#turmas .linha-turma td {
+  background-color: #dbeafe;
+  font-weight: bold;
+  padding: 12px;
+  border-top: 3px solid #2563eb;
 }
 
+/* Cabeçalho dos alunos */
+#turmas .cabecalho-alunos th {
+  background-color: #e9ecef;
+  color: #343a40;
+  padding: 10px;
+  font-size: 13px;
+}
 
-#turmas th:last-child {
-  border-radius: 0 8px 8px 0;
+/* Linhas dos alunos */
+#turmas .linha-aluno td {
+  background-color: #ffffff;
+  padding: 10px;
+  padding-left: 20px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Efeito ao passar o mouse nos alunos */
+#turmas .linha-aluno:hover td {
+  background-color: #f1f5f9;
+}
+
+/* Mensagem quando não existem alunos */
+#turmas .sem-alunos td {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 12px;
+  font-style: italic;
+}
+
+/* Alinhamento das médias */
+#turmas .linha-aluno td:nth-child(2) {
+  text-align: center;
+}
+
+/* Alinhamento dos IDs */
+#turmas .linha-turma td:nth-child(3) {
+  text-align: center;
 }

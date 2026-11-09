@@ -57,37 +57,35 @@ class Interface{
    let lista = '<table border="1">';
 
    // Cabeçalho da tabela
-   lista +=
-      "<tr>" +
-      "<th>Nome da Turma</th>" +
-      "<th>Professor</th>" +
-      "<th>ID da Turma</th>" +
-      "</tr>";
-
    for (let i = 0; i < turma.length; i++) {
       lista +=
-         "<tr>" +
-         "<td>" + turma[i].getNomeCurso() + "</td>" +
-         "<td>" + turma[i].getProfessor() + "</td>" +
-         "<td>" + turma[i].getIdturma() + "</td>" +
+         "<tr class='linha-turma'><td colspan='6'> Curso: "+ turma[i].getNomeCurso() + "</tr></td>" +
+         "<td colspan='5'> Professor: " + turma[i].getProfessor() + "</td>" +
+         "<td> Id Turma: " + turma[i].getIdturma() + "</td>" +
          "</tr>";
       if(turma[i].alunos.length >= 1){
         lista +=
-        "<tr>" + 
+        "<tr class='cabecalho-alunos'>" +
         "<th>Nome do aluno</th>" +
+        "<th>Nota 1</th>" +
+        "<th>Nota 2</th>" +
+        "<th>Nota 3</th>" + 
         "<th>Média</th>" +
         "<th>Situação</th>" +
         "</tr>";
         for(let j = 0; j < turma[i].alunos.length; j++) {
           lista +=
-            "<tr>"+
+            "<tr class='linha-aluno'>" +
             "<td>"+turma[i].alunos[j].getNome() +"</td>"+
+            "<td>"+turma[i].alunos[j].getNota1() +"</td>"+
+            "<td>"+turma[i].alunos[j].getNota2() +"</td>"+
+            "<td>"+turma[i].alunos[j].getNota3() +"</td>"+
             "<td>"+turma[i].alunos[j].media.toFixed(2) +"</td>"+
-            "<td>"+turma[i].alunos[j].estado +"</td>"
+            "<td>"+turma[i].alunos[j].estado +"</td>" +
             "</tr>";
         }
       }else{
-        lista += "<tr><td>Nenhum aluno Cadastrado nessa turma ainda.</td></tr>"
+        lista += "<tr class='sem-alunos'><td colspan='3'>Nenhum aluno cadastrado nessa turma ainda.</td></tr>";
       }
    }
    lista += "</table>"
