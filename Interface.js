@@ -5,18 +5,6 @@ class Interface{
   
   
   }   
-  static salvar() {
-   let nome = document.getElementById('nome').value;
-   let n1 = Number(document.getElementById('n1').value);
-   let n2 = Number(document.getElementById('n2').value);
-   let n3 = Number(document.getElementById('n3').value);
-   let a1 = new Aluno(nome, n1, n2, n3);
-   let m = a1.gerarMedia(n1, n2, n3);
-   a1.gerarEstado(m);
-   //turma[turma.length] = a1;
-   alert('aluno cadastrado');
-   return a1;
-  }
 
   static salvarTurma() {
    let nometurma = document.getElementById('nomecurso').value;
@@ -25,6 +13,34 @@ class Interface{
    let t1 = new Turma(nometurma, prof, idturma);
    alert('turma cadastrada');
    return t1;
+  }
+ 
+  static salvar(turmas) {
+   let nome = document.getElementById('nome').value;
+   let n1 = Number(document.getElementById('n1').value);
+   let n2 = Number(document.getElementById('n2').value);
+   let n3 = Number(document.getElementById('n3').value);
+   let a1 = new Aluno(nome, n1, n2, n3);
+   let idturma = document.getElementById('turma').value;
+   let m = a1.gerarMedia(n1, n2, n3);
+   a1.gerarEstado(m);
+   let tencontrada = false;
+
+   if(turmas.length == 0){
+    alert('é necessario cadastrar uma turma primeiro para poder cadastrar um aluno.');
+   }
+
+   for(let i = 0; i < turmas.length; i++){
+    if(turmas[i].getIdturma() == idturma){
+      turmas[i].alunos.push(a1);
+      alert('aluno cadastrado');
+      alert(turmas[i].alunos.length)
+      tencontrada = true;
+    }
+   }
+   if(!(tencontrada)){
+    alert('turma não encontrada, tente novamente!');
+   }
   }
 
   static listar(turma) {
@@ -37,25 +53,43 @@ class Interface{
    // Ajusta o conteúdo visível
    tabListar.classList.add('active');
    tabCadastrar.classList.remove('active');
-   
-   let lista = '<table>';
+
+   let lista = '<table border="1">';
+
+   // Cabeçalho da tabela
+   lista +=
+      "<tr>" +
+      "<th>Nome da Turma</th>" +
+      "<th>Professor</th>" +
+      "<th>ID da Turma</th>" +
+      "</tr>";
+
    for (let i = 0; i < turma.length; i++) {
-     lista =
-     "<tr>"+
-     "<td>"+turma[i].getNome() +"</td>"+
-     "<td>"+turma[i].getProfessor() +"</td>"+
-     "<td>"+turma[i].getIdturma() +"</td>"+
-     "</tr>";
+      lista +=
+         "<tr>" +
+         "<td>" + turma[i].getNomeCurso() + "</td>" +
+         "<td>" + turma[i].getProfessor() + "</td>" +
+         "<td>" + turma[i].getIdturma() + "</td>" +
+         "</tr>";
+      if(turma[i].alunos.length >= 1){
+        lista +=
+        "<tr>" + 
+        "<th>Nome do aluno</th>" +
+        "<th>Média</th>" +
+        "<th>Situação</th>" +
+        "</tr>";
+        for(let j = 0; j < turma[i].alunos.length; j++) {
+          lista +=
+            "<tr>"+
+            "<td>"+turma[i].alunos[j].getNome() +"</td>"+
+            "<td>"+turma[i].alunos[j].media.toFixed(2) +"</td>"+
+            "<td>"+turma[i].alunos[j].estado +"</td>"
+            "</tr>";
+        }
+      }else{
+        lista += "<tr><td>Nenhum aluno Cadastrado nessa turma ainda.</td></tr>"
+      }
    }
-   /*for (let i = 0; i < turma.length; i++) {
-     lista =
-       lista +
-       "<tr>"+
-       "<td>"+turma[i].getNome() +"</td>"+
-       "<td>"+turma[i].media.toFixed(2) +"</td>"+
-       "<td>"+turma[i].estado +"</td>"
-       "</tr>";
-   }*/
    lista += "</table>"
    document.getElementById('turmas').innerHTML = lista;
   }

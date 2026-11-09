@@ -1,5 +1,5 @@
 /* Tabela de alunos */
-#alunos table {
+#turmas table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
@@ -8,7 +8,7 @@
 
 
 /* Cabeçalho */
-#alunos th {
+#turmas th {
   background-color: #f1f3f5;
   color: #333;
   padding: 14px 12px;
@@ -18,7 +18,7 @@
 
 
 /* Células dos alunos */
-#alunos td {
+#turmas td {
   padding: 14px 12px;
   border-bottom: 1px solid #e5e5e5;
   color: #333;
@@ -32,18 +32,18 @@
 
 
 /* Alinhamento da média */
-#alunos th:nth-child(2),
+#turmas th:nth-child(2),
 #alunos td:nth-child(2) {
   text-align: center;
 }
 
 
 /* Cantos arredondados do cabeçalho */
-#alunos th:first-child {
+#turmas th:first-child {
   border-radius: 8px 0 0 8px;
 }
 
 
-#alunos th:last-child {
+#turmas th:last-child {
   border-radius: 0 8px 8px 0;
 }

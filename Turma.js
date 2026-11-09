@@ -6,14 +6,13 @@ class Turma {
   constructor(nomecurso, professor, idturma) {
     this.#nomecurso = nomecurso;
     this.#professor = professor;
-    this.#idturma = idturma;
-    console('nova turma cirada');
+    this.#idcurso = idturma;
   }
 
-  getNome(){
+  getNomeCurso(){
     return this.#nomecurso;
   }
-  setNome(nome){
+  setNomeCurso(nome){
     this.#nomecurso = nome;
   }
 
@@ -22,15 +21,11 @@ class Turma {
   }
 
   setProfessor(prof){
-    this.#professor = prof
+    this.#professor = prof;
   }
 
   getIdturma(){
     return this.#idcurso;
-  }
-
-  adcionarAluno(aluno){
-    this.alunos.push(aluno)
   }
 
 } //fim da classe 
