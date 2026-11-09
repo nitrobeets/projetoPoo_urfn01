@@ -7,7 +7,9 @@ class Turma {
     this.#nomecurso = nomecurso;
     this.#professor = professor;
     this.#idturma = idturma;
+    console('nova turma cirada');
   }
+
   getNome(){
     return this.#nomecurso;
   }
@@ -19,7 +21,7 @@ class Turma {
     return this.#professor;
   }
 
-  setNota1(prof){
+  setProfessor(prof){
     this.#professor = prof
   }
 
@@ -31,5 +33,4 @@ class Turma {
     this.alunos.push(aluno)
   }
 
- } //fim da classe
- 
+} //fim da classe 

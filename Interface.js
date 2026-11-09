@@ -19,12 +19,12 @@ class Interface{
   }
 
   static salvarTurma() {
-    let nomeTurma = document.getElementById('nome').value;
-    let nomeProf = document.getElementById('nome').value;
-    let idTurma = document.getElementById('nome').value;
-    let t1 = new Turma(nomeTurma, nomeProf, idTurma);
-    alert('turma '+ nomeTurma +' cadastrada');
-    return t1;
+   let nometurma = document.getElementById('nomecurso').value;
+   let prof = document.getElementById('prof').value;
+   let idturma = document.getElementById('idturma').value;
+   let t1 = new Turma(nometurma, prof, idturma);
+   alert('turma cadastrada');
+   return t1;
   }
 
   static listar(turma) {
@@ -32,15 +32,12 @@ class Interface{
    const tabCadastrar = document.getElementById('tab-cadastrar');
    const btnListar = document.getElementById('btn-listar');
    const tabListar = document.getElementById('tab-listar');
-  
-  
    btnListar.classList.add('active');
    btnCadastrar.classList.remove('active');
-  
-  
    // Ajusta o conteúdo visível
    tabListar.classList.add('active');
    tabCadastrar.classList.remove('active');
+   
    let lista = '<table>';
    for (let i = 0; i < turma.length; i++) {
      lista =

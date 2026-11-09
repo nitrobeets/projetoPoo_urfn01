@@ -1,10 +1,10 @@
 let turmas = [];
+let t = new Turma('Turma 1', 'Euclesio', '01');
+turmas.push(t);
 
-
-function listarAluno(){
+function listarTurmas(){
    Interface.listar(turmas);
 }
-
 
 function btnSalvar(){
   let a = Interface.salvar();
