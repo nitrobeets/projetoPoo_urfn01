@@ -25,3 +25,7 @@ function cadastroAluno(){
 function cadastroTurma(){
    Interface.cadastrarTurma();
 }
+
+function editarNotas(nturma, aluno){
+   Interface.editarNotas(nturma, aluno, turmas);
+}

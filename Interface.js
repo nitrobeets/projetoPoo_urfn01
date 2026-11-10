@@ -83,7 +83,7 @@ class Interface{
             "<td>"+turma[i].alunos[j].media.toFixed(2) +"</td>"+
             "<td>"+turma[i].alunos[j].estado +"</td>" +
             "<td>" +
-            "<button onclick='editarNotas()' class='btn-editar'>Editar Notas</button>" +
+            "<button onclick='editarNotas(" + i + ", " + j + ")' class='btn-editar'>Editar Notas</button>" +
             "</td>" +
             "</tr>";
         }
@@ -137,5 +137,11 @@ class Interface{
 
     tabCadastrarAluno.classList.add('active');
     tabCadastrarTurma.classList.remove('active');
+  }
+
+  static editarNotas(nturma, naluno, turmas){
+    let aluno = turmas[Number(nturma)].alunos[Number(naluno)];
+    let modalNotas = document.getElementById('modal-notas');
+    let 
   }
 }
