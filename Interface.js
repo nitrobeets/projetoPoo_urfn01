@@ -141,7 +141,37 @@ class Interface{
 
   static editarNotas(nturma, naluno, turmas){
     let aluno = turmas[Number(nturma)].alunos[Number(naluno)];
-    let modalNotas = document.getElementById('modal-notas');
-    let 
+    const modalNotas = document.getElementById('modal-notas');
+    const btnSalvar = document.getElementById('btnSalvar');
+    document.getElementById('nota1').value = aluno.getNota1();
+    document.getElementById('nota2').value = aluno.getNota2();
+    document.getElementById('nota3').value = aluno.getNota3();
+
+    modalNotas.style.display = 'flex';
+    
+    btnSalvar.onclick = function(){
+      const n1 = document.getElementById('nota1').value;
+      const n2 = document.getElementById('nota2').value;
+      const n3 = document.getElementById('nota3').value;
+      if(n1 !== ""){
+        aluno.setNota1(Number(n1));
+      }
+      if(n2 !== ""){
+        aluno.setNota2(Number(n2));
+      }
+      if(n3 !== ""){
+        aluno.setNota3(Number(n3));
+      }
+      let m = aluno.gerarMedia(aluno.getNota1(), aluno.getNota2(), aluno.getNota3());
+      aluno.gerarEstado(m);
+      Interface.listar(turmas);
+      alert('notas editadas');
+      modalNotas.style.display = 'none';
+      };
+  }
+
+  static cancelarModal(){
+    const modalNotas = document.getElementById('modal-notas');
+    modalNotas.style.display = 'none';   
   }
 }

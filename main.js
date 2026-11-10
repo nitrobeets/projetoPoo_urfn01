@@ -29,3 +29,7 @@ function cadastroTurma(){
 function editarNotas(nturma, aluno){
    Interface.editarNotas(nturma, aluno, turmas);
 }
+
+function cancelarEdit(){
+   Interface.cancelarModal();
+}

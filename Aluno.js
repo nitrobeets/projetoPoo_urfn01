@@ -40,7 +40,7 @@ class Aluno {
   }
 
   setNota1(nota01){
-    this.#nota1 = nota01
+    this.#nota1 = nota01;
   }
 
   getNota2(){
@@ -55,7 +55,7 @@ class Aluno {
   }
 
   setNota3(nota03){
-    this.#nota3 = nota03
+    this.#nota3 = nota03;
   }
 
  } //fim da classe
